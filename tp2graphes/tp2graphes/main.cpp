@@ -28,22 +28,14 @@ bool cycle(AdjCell** adjMatrix, int size); // checks cycle presence in adjacency
 
 int main(int argc, const char * argv[]) {
     string path;
-//    if (argc == 2) {
-//        path = argv[1];
-//    } else {
-//        cout << "Which file do you want to open ? ";
-//        cin >> path;
-//        cout << endl;
-    //    }
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    //    MODIFY ME !!!!!!!!!!!!!!!!!!
-    path = "/Users/matthieudelaro/Documents/classes/L3/S5/theorie_des_graphes/TP/tp2/github/tp2graphes/tp2graphes/1.txt";
+    if (argc == 2) {
+        path = argv[1];
+    } else {
+        cout << "Which file do you want to open ? ";
+        cin >> path;
+        cout << endl;
+    }
+    //path = "/Users/matthieudelaro/Documents/classes/L3/S5/theorie_des_graphes/TP/tp2/github/tp2graphes/tp2graphes/1modified.txt";
     
     
     int size = 0; //size of adjacency matrix and of Bellman's matrix
@@ -60,7 +52,20 @@ int main(int argc, const char * argv[]) {
         
         // test connexity
         cout << endl;
-        connexe(adjMatrix, size);
+        if (connexe(adjMatrix, size)) {
+            cout << "The graph is connexe." << endl;
+        } else {
+            cout << "The graph is not connexe." << endl;
+        }
+        cout << endl;
+        
+        // test cycle presence
+        cout << endl;
+        if (cycle(adjMatrix, size)) {
+            cout << "The graph contains cycles." << endl;
+        } else {
+            cout << "The graph does not contain any cycle." << endl;
+        }
         cout << endl;
         
         
@@ -255,17 +260,65 @@ bool connexe(AdjCell** adjMatrix, int size) {
         }
     }
     
+    cout << endl;
+    cout << endl;
     if (foundQuantity == size) {
-        cout << "Each node has been found, which proves that the graph is connexe." << endl;
+        cout << "Each node has been found." << endl;
         return true;
     } else {
-        cout << "Some node has not been found, which proves that the graph is not connexe." << endl;
+        cout << "Some node(s) has not been found." << endl;
         return false;
     }
 }
 
 // checks cycle presence in adjacency matrix
 bool cycle(AdjCell** adjMatrix, int size) {
-    return false;
+    vector<bool> deleted(size, false);
+    
+    int deletedQuantity = 0;
+    int previousDeletedQuantity = 0;
+    
+    int current = 0;
+    bool goOn = true;
+    while (deletedQuantity < size && goOn) {
+        if (deleted[current] == false) {
+            
+            int destinationQuantity = 0;
+            for (int destination = 0; destination < size && destinationQuantity < 2; ++destination) {
+                if (adjMatrix[current][destination].valid && !deleted[destination]) {
+                    destinationQuantity++;
+                }
+            }
+            
+            // if the node is an entry point in the graph,
+            // we delete this node
+            if (destinationQuantity < 2) {
+                deleted[current] = true;
+                deletedQuantity++;
+                cout << current << " has " << destinationQuantity << " neighbour. We delete it." << endl;
+            }
+        }
+        
+        if (current == size - 1) {
+            if (deletedQuantity == previousDeletedQuantity) {
+                goOn = false;
+            } else {
+                previousDeletedQuantity = deletedQuantity;
+                current = 0;
+            }
+        } else {
+            current++;
+        }
+    }
+    
+    cout << endl;
+    cout << endl;
+    if (deletedQuantity == size) {
+        cout << "Each node has been deleted." << endl;
+        return false;
+    } else {
+        cout << "Some node(s) has not been deleted." << endl;
+        return true;
+    }
 }
 
