@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <cstdio>
+#include <vector>
+
 using namespace std;
 
 // Cell of the adjacency matrix
@@ -54,6 +56,11 @@ int main(int argc, const char * argv[]) {
         // if adgency matrix was successfully created
         cout << endl;
         print(adjMatrix, size);
+        cout << endl;
+        
+        // test connexity
+        cout << endl;
+        connexe(adjMatrix, size);
         cout << endl;
         
         
@@ -184,7 +191,77 @@ void print(AdjCell** adjMatrix, int size) {
 
 // checks connexity in adjacency matrix
 bool connexe(AdjCell** adjMatrix, int size) {
-    return false;
+    vector<bool> found(size, false);
+    vector<bool> used(size, false);
+    
+    int previousFoundQuantity = 1;
+    int foundQuantity = 1;
+    int usedQuantity = 0;
+    found[0] = true;
+    
+    int current = 0;
+    bool goOn = true;
+    while (foundQuantity < size && usedQuantity < size && goOn) {
+        if (used[current] == false && found[current]) {
+            
+            used[current] = true;
+            usedQuantity++;
+            
+            cout << endl;
+            cout << endl;
+            cout << "Newly found with " << current << " : ";
+            
+            for (int destination = 0; destination < size; ++destination) {
+                if (adjMatrix[current][destination].valid) {
+                    if (found[destination] == false) {
+                        found[destination] = true;
+                        foundQuantity++;
+                        
+                        cout << destination << " ";
+                    }
+                }
+            }
+            
+            cout << endl;
+            cout << "foundQuantity : " << foundQuantity << endl;
+            cout << "usedQuantity : " << usedQuantity << endl;
+            
+            cout << "found : ";
+            for (int i = 0; i < size; ++i) {
+                if (found[i]) {
+                    cout << i << " ";
+                }
+            }
+            cout << endl;
+            
+            cout << "used : ";
+            for (int i = 0; i < size; ++i) {
+                if (used[i]) {
+                    cout << i << " ";
+                }
+            }
+            cout << endl;
+        }
+        
+        if (current == size - 1) {
+            if (foundQuantity == previousFoundQuantity) {
+                goOn = false;
+            } else {
+                previousFoundQuantity = foundQuantity;
+                current = 0;
+            }
+        } else {
+            current++;
+        }
+    }
+    
+    if (foundQuantity == size) {
+        cout << "Each node has been found, which proves that the graph is connexe." << endl;
+        return true;
+    } else {
+        cout << "Some node has not been found, which proves that the graph is not connexe." << endl;
+        return false;
+    }
 }
 
 // checks cycle presence in adjacency matrix
