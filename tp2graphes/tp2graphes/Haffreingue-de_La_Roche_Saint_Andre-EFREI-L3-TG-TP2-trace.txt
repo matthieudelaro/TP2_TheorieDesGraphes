@@ -1,0 +1,158 @@
+Which file do you want to open ? /Users/matthieudelaro/Documents/classes/L3/S5/theorie_des_graphes/TP/tp2/github/tp2graphes/tp2graphes/Haffreingue-de_La_Roche_Saint_Andre-EFREI-L3-TG-TP2-2.txt
+
+Opening /Users/matthieudelaro/Documents/classes/L3/S5/theorie_des_graphes/TP/tp2/github/tp2graphes/tp2graphes/Haffreingue-de_La_Roche_Saint_Andre-EFREI-L3-TG-TP2-2.txt.
+
+    0   1   2   3   4   5   6   7   8   9   10  11  12  13  14  15  16  17
+0   .   5   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+1   5   .   3   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+2   .   3   .   .   .   .   .   .   .   .   1   .   .   6   .   .   .   .
+3   .   .   .   .   .   0   .   .   .   .   .   .   .   .   .   .   .   .
+4   .   .   .   .   .   5   .   .   .   .   .   0   .   .   .   .   .   .
+5   .   .   .   0   5   .   4   .   .   .   .   .   .   .   .   .   .   .
+6   .   .   .   .   .   4   .   16  .   .   .   .   1   .   .   7   .   .
+7   .   .   .   .   .   .   16  .   2   0   .   .   .   .   .   .   .   .
+8   .   .   .   .   .   .   .   2   .   .   .   .   5   .   .   .   .   .
+9   .   .   .   .   .   .   .   0   .   .   .   .   .   .   .   .   .   .
+10  .   .   1   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .
+11  .   .   .   .   0   .   .   .   .   .   .   .   6   .   .   .   .   .
+12  .   .   .   .   .   .   1   .   5   .   .   6   .   3   .   .   .   .
+13  .   .   6   .   .   .   .   .   .   .   .   .   3   .   .   .   .   .
+14  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   2   .   .
+15  .   .   .   .   .   .   7   .   .   .   .   .   .   .   2   .   1   8
+16  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   1   .   .
+17  .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   8   .   .
+
+
+
+
+Newly found with 0 : 1
+foundQuantity : 2
+usedQuantity : 1
+found : 0 1
+used : 0
+
+
+Newly found with 1 : 2
+foundQuantity : 3
+usedQuantity : 2
+found : 0 1 2
+used : 0 1
+
+
+Newly found with 2 : 10 13
+foundQuantity : 5
+usedQuantity : 3
+found : 0 1 2 10 13
+used : 0 1 2
+
+
+Newly found with 10 :
+foundQuantity : 5
+usedQuantity : 4
+found : 0 1 2 10 13
+used : 0 1 2 10
+
+
+Newly found with 13 : 12
+foundQuantity : 6
+usedQuantity : 5
+found : 0 1 2 10 12 13
+used : 0 1 2 10 13
+
+
+Newly found with 12 : 6 8 11
+foundQuantity : 9
+usedQuantity : 6
+found : 0 1 2 6 8 10 11 12 13
+used : 0 1 2 10 12 13
+
+
+Newly found with 6 : 5 7 15
+foundQuantity : 12
+usedQuantity : 7
+found : 0 1 2 5 6 7 8 10 11 12 13 15
+used : 0 1 2 6 10 12 13
+
+
+Newly found with 7 : 9
+foundQuantity : 13
+usedQuantity : 8
+found : 0 1 2 5 6 7 8 9 10 11 12 13 15
+used : 0 1 2 6 7 10 12 13
+
+
+Newly found with 8 :
+foundQuantity : 13
+usedQuantity : 9
+found : 0 1 2 5 6 7 8 9 10 11 12 13 15
+used : 0 1 2 6 7 8 10 12 13
+
+
+Newly found with 9 :
+foundQuantity : 13
+usedQuantity : 10
+found : 0 1 2 5 6 7 8 9 10 11 12 13 15
+used : 0 1 2 6 7 8 9 10 12 13
+
+
+Newly found with 11 : 4
+foundQuantity : 14
+usedQuantity : 11
+found : 0 1 2 4 5 6 7 8 9 10 11 12 13 15
+used : 0 1 2 6 7 8 9 10 11 12 13
+
+
+Newly found with 15 : 14 16 17
+foundQuantity : 17
+usedQuantity : 12
+found : 0 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+used : 0 1 2 6 7 8 9 10 11 12 13 15
+
+
+Newly found with 16 :
+foundQuantity : 17
+usedQuantity : 13
+found : 0 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+used : 0 1 2 6 7 8 9 10 11 12 13 15 16
+
+
+Newly found with 17 :
+foundQuantity : 17
+usedQuantity : 14
+found : 0 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+used : 0 1 2 6 7 8 9 10 11 12 13 15 16 17
+
+
+Newly found with 4 :
+foundQuantity : 17
+usedQuantity : 15
+found : 0 1 2 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+used : 0 1 2 4 6 7 8 9 10 11 12 13 15 16 17
+
+
+Newly found with 5 : 3
+foundQuantity : 18
+usedQuantity : 16
+found : 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17
+used : 0 1 2 4 5 6 7 8 9 10 11 12 13 15 16 17
+
+
+Each node has been found.
+The graph is connexe.
+
+
+0 has 1 neighbour. We delete it.
+1 has 1 neighbour. We delete it.
+3 has 1 neighbour. We delete it.
+9 has 1 neighbour. We delete it.
+10 has 1 neighbour. We delete it.
+14 has 1 neighbour. We delete it.
+16 has 1 neighbour. We delete it.
+17 has 1 neighbour. We delete it.
+2 has 1 neighbour. We delete it.
+13 has 1 neighbour. We delete it.
+15 has 1 neighbour. We delete it.
+
+
+Some node(s) has not been deleted.
+The graph contains cycles.
